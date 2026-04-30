@@ -1,0 +1,23 @@
+[
+  {
+    "id": "CON-001",
+    "task": "client_consultation",
+    "input": "我的发明已经被公开使用了6个月，还能申请专利吗？",
+    "expected_output_contains": ["新颖性宽限期", "专利法第24条", "6个月"],
+    "difficulty": "easy"
+  },
+  {
+    "id": "CON-002",
+    "task": "client_consultation",
+    "input": "发明专利和实用新型专利有什么区别？我应该申请哪种？",
+    "expected_output_contains": ["发明", "实用新型", "保护期限", "审查方式", "创造性要求"],
+    "difficulty": "easy"
+  },
+  {
+    "id": "CON-003",
+    "task": "client_consultation",
+    "input": "我想在美国和欧洲也申请专利，应该怎么做？",
+    "expected_output_contains": ["PCT", "巴黎公约", "国际申请", "优先权"],
+    "difficulty": "medium"
+  }
+]

@@ -1,0 +1,20 @@
+# SFT 微调配置
+# 先用 Teacher 生成的专利数据对 Student 做 SFT
+
+model_name: Qwen/Qwen3-8B
+dataset_name: ./data/sft
+output_dir: ./output/patent-agent-sft
+
+num_train_epochs: 3
+learning_rate: 2.0e-5
+per_device_train_batch_size: 4
+gradient_accumulation_steps: 4
+warmup_ratio: 0.05
+lr_scheduler_type: cosine
+bf16: true
+max_seq_length: 4096
+gradient_checkpointing: true
+optim: paged_adamw_8bit
+logging_steps: 10
+save_steps: 500
+save_total_limit: 3

@@ -1,0 +1,22 @@
+[
+  {
+    "task": "creativity_evaluation",
+    "prompt_template": "你是一名资深专利代理师。请对以下技术方案进行专利创造性评估。\n\n【技术方案】\n{technical_solution}\n\n【最近似对比文件】\n{closest_prior_art}\n\n【区别技术特征】\n{distinguishing_features}\n\n请从以下维度分析：\n1. 新颖性判断（与对比文件逐项比对）\n2. 创造性判断（三步法）：\n   - 确定最接近的现有技术\n   - 确定区别技术特征和实际解决的技术问题\n   - 判断是否显而易见\n3. 实用性评估\n4. 结论与建议",
+    "description": "创造性评估模板，强制三步法结构化输出"
+  },
+  {
+    "task": "patent_drafting",
+    "prompt_template": "你是一名资深专利代理师。请根据以下技术交底书撰写专利申请文件。\n\n【技术交底书】\n{technical_disclosure}\n\n【撰写要求】\n- 权利要求书：独立权利要求 + 从属权利要求布局\n- 说明书：技术领域、背景技术、发明内容、具体实施方式\n- 摘要：不超过300字\n\n请严格按照中国专利法实施细则的要求撰写。",
+    "description": "专利文件撰写模板"
+  },
+  {
+    "task": "office_action_response",
+    "prompt_template": "你是一名资深专利代理师。请针对以下审查意见进行答复。\n\n【申请号】{application_number}\n【审查意见】\n{office_action}\n\n【当前权利要求】\n{current_claims}\n\n请提供：\n1. 审查意见分析（逐条分析审查员的驳回理由）\n2. 答复策略（争辩 vs 修改 vs 两者结合）\n3. 修改后的权利要求书（如需修改）\n4. 意见陈述书正文",
+    "description": "审查意见答复模板"
+  },
+  {
+    "task": "client_consultation",
+    "prompt_template": "你是一名资深专利代理师。请回答以下客户咨询。\n\n【客户问题】\n{client_question}\n\n【背景信息】\n{context}\n\n请提供专业、准确、易懂的解答，必要时引用相关法律条文。",
+    "description": "客户咨询模板"
+  }
+]

@@ -1,0 +1,36 @@
+.gitignore for patent-agent-distill
+
+# 模型文件（太大不上传）
+output/
+*.bin
+*.safetensors
+*.pt
+*.pth
+
+# Logit 捕获数据（太大不上传）
+data/logits_capture/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+*.egg-info/
+
+# 环境
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+
+# 日志
+wandb/
+logs/
+*.log
+
+# 系统
+.DS_Store
+Thumbs.db
