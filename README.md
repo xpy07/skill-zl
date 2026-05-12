@@ -1,58 +1,95 @@
-# 专利代理师蒸馏项目 (Patent Agent Distillation)
+# Patent Writing Assistant
 
-基于 [DistillKit](https://github.com/arcee-ai/DistillKit) 的专利代理师大模型蒸馏方案。
+专利专业文档写作助手，具备检索、学习、撰写、校对四大核心能力。
 
-## 项目目标
+## 核心能力
 
-将大模型的专利代理能力蒸馏到轻量模型中，覆盖专利代理师四大核心职责：
-
-1. **创造性评估** — 三性分析（新颖性、创造性、实用性）
-2. **文件撰写** — 权利要求书、说明书、摘要
-3. **审查意见答复** — 区别技术特征争辩、权利要求修改
-4. **客户咨询** — 流程指引、法条引用、风险提示
-
-## 技术方案
-
-两阶段蒸馏：
-- **阶段一**：SFT 数据蒸馏（Teacher 生成高质量训练数据 → Student 微调）
-- **阶段二**：DistillKit Logit KD（KL 散度 + CE + Hidden State 对齐）
-
-推荐配置：
-- Teacher: Qwen3-235B
-- Student: Qwen3-8B
+1. **检索能力** - 多源检索专利、论文、百科、法律条文
+2. **学习模仿能力** - 分析优秀文章风格并生成风格指南
+3. **撰写能力** - 撰写专利申请文件、技术文档、研究报告
+4. **检查校对能力** - 灵活的校对功能，支持用户自定义校对方向
 
 ## 项目结构
 
 ```
-patent-agent-distill/
-├── SKILL.md              # 完整技术方案
-├── data/
-│   ├── prompts/          # Prompt 模板
-│   ├── sft/              # SFT 训练数据
-│   └── test/             # 评估测试集
-├── configs/              # 训练配置文件
-├── scripts/              # 训练/评估脚本
-└── evaluation/           # 评估代码
+patent-writing-assistant/
+├── SKILL.md                          # 主入口文件
+├── modules/
+│   ├── search/SKILL.md               # 检索模块
+│   ├── learn/SKILL.md                # 学习模块
+│   ├── write/SKILL.md                # 撰写模块
+│   └── proofread/SKILL.md            # 校对模块
+├── templates/                        # 模板库
+│   ├── patent/                       # 专利申请模板
+│   └── components/                   # 组件模板
+├── references/                       # 参考资料
+└── workspace/                        # 用户工作空间
+    ├── search-results/               # 检索结果存储
+    ├── style-guides/                 # 风格指南存储
+    ├── documents/                    # 撰写的文档
+    └── proofread-reports/            # 校对报告
 ```
 
-## 快速开始
+## 使用方法
 
-```bash
-# 1. 安装 DistillKit
-git clone https://github.com/arcee-ai/distillkit.git
-cd distillkit && pip install -e .
+### 撰写专利文件
 
-# 2. 准备数据（见 data/ 目录）
-
-# 3. SFT 微调
-bash scripts/04_sft_train.sh
-
-# 4. Logit KD 蒸馏
-bash scripts/05_distill_train.sh
-
-# 5. 评估
-python evaluation/eval_all.py
 ```
+用户上传技术交底文件
+    ↓
+[步骤1] 资料检索（强制前置）
+    ↓
+[步骤2] 生成技术方案
+    ↓
+[步骤3] 生成权利要求书
+    ↓
+[步骤4] 生成背景技术
+    ↓
+[步骤5] 生成发明内容
+    ↓
+[步骤6] 判断是否需要附图
+    ↓
+[步骤7] 生成具体实施方式
+    ↓
+[步骤8] 整合输出
+```
+
+### 学习风格
+
+```
+用户输入：文章样本/领域关键词
+    ↓
+[步骤1] 文章收集
+    ↓
+[步骤2] 表面特征分析
+    ↓
+[步骤3] 深层特征分析
+    ↓
+[步骤4] 生成风格指南
+    ↓
+[步骤5] 保存风格指南
+```
+
+### 检查校对
+
+```
+用户输入：待校对文档
+    ↓
+[步骤1] 询问校对方向
+    ↓
+[步骤2] 执行校对
+    ↓
+[步骤3] 输出结果
+```
+
+## 触发词
+
+| 模块 | 触发词 |
+|------|--------|
+| search | "检索"、"搜索"、"查找"、"查询" |
+| learn | "学习"、"模仿"、"分析风格"、"参考写法" |
+| write | "撰写"、"写"、"起草"、"生成" |
+| proofread | "检查"、"校对"、"审核"、"验证" |
 
 ## 许可证
 
